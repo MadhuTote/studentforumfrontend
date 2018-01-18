@@ -1,0 +1,147 @@
+<div class="container-fluid mt-50 pl-0">
+				<div class="row">
+					<div class="col-md-2 p-0 bg-yellow">
+						<div id="profile" class="pl-30 pr-20 pt-20 pb-30 bg-black">
+							<img src="http://localhost:8083/studentforumbackend/getimage/{{currentUser.username}}" alt="" onerror="this.src='images/user2.png'" class="img-responsive img-circle"><br>
+							<i style="color:#fff"> {{currentUser.firstname}} {{currentUser.lastname}}</i><br>
+							<i style="color:#fff"> {{currentUser.role}}</i>
+						</div>
+						<div class="pl-15 ">
+								 <ul class="nav nav-pills nav-stacked" id="stacked-menu">
+										<li><a class="nav-container" data-toggle="collapse" data-parent="#stacked-menu" href="#p2"><i class="fa-address-book fa"></i> Profile<div class="caret-container"><span class="caret arrow"></span></div></a>    
+										
+											 <ul class="nav nav-pills nav-stacked collapse in" id="p2">
+												<li data-toggle="collapse" data-parent="#p2" href="#pv1">
+												  <a class="nav-sub-container"><i class="fa  fa-angle-double-right"></i> Update Profile</a></li>
+												 
+											   <li data-toggle="collapse" data-parent="#p2" href="#pv2">
+												  <a class="nav-sub-container" href="#/profilepic"><i class="fa  fa-angle-double-right"></i>Change Profile Picture</a></li>
+										
+											  </ul>
+											
+										</li>
+									 	<!--  <li>
+										  <a class="nav-container" data-toggle="collapse" data-parent="#stacked-menu" href="#p1"> <i class="fa fa-users" aria-hidden="true"></i> Users<div class="caret-container"><span class="caret arrow"></span></div></a>    
+										  
+										  <ul class="nav nav-pills nav-stacked collapse in" id="p1">
+											<li data-toggle="collapse" data-parent="#p1" href="#pv1">
+											  <a class="nav-sub-container" href="#"><i class="fa  fa-angle-double-right"></i> View Users</a></li>
+											 
+											
+											
+											<li data-toggle="collapse" data-parent="#p1" href="#pv2">
+											  <a class="nav-sub-container" href="#/listoffriends"><i class="fa  fa-angle-double-right"></i> My Friends</a></li>
+											 
+
+											<li data-toggle="collapse" data-parent="#p1" href="#pv3">
+											  <a class="nav-sub-container" href="#/pendingrequest"><i class="fa  fa-angle-double-right"></i> Friend Requests</a></li>
+											  											 
+											
+											
+										  </ul>
+										  
+										</li>-->
+										
+										
+										<li><a class="nav-container" data-toggle="collapse" data-parent="#stacked-menu" href="#p3"><i class="fa fa-rss" aria-hidden="true"></i> Blog<div class="caret-container"><span class="caret arrow"></span></div></a>    
+										
+											 <ul class="nav nav-pills nav-stacked collapse in" id="p3">
+												<li data-toggle="collapse" data-parent="#p3" href="#pv1">
+												  <a class="nav-sub-container" href="#/getallblogs"><i class="fa  fa-angle-double-right"></i> View Blogs</a></li>
+												  
+												 	<li data-toggle="collapse" data-parent="#p3" href="#pv1">
+												  <a class="nav-sub-container" href="#/getallapprovelblogs" ng-show="currentUser.role=='ADMIN'"><i class="fa  fa-angle-double-right"></i><u>Approve Blogs</u></a></li>										
+												
+												 <li data-toggle="collapse" data-parent="#p3" href="#pv3">
+												  <a class="nav-sub-container" href="#/saveblogpost"><i class="fa  fa-angle-double-right"></i> Create Blog</a></li>
+		 
+														 
+												
+												
+											  </ul>
+											
+										</li>
+										
+										<li><a class="nav-container" href="#"><i class="fa fa-file" aria-hidden="true"></i> Forum</a></li>
+									  </ul>
+						
+						</div>
+					
+					</div>
+					<div class="col-md-10">
+						
+						
+						<div class="container">
+							<div class="col-md-2 hidden-sm">
+							</div>
+							
+							<div class="col-md-8 col-sm-12">
+								<h2 class="text-center mb-20"> Pending Blogs</h2>
+									<div class="media p-20 bg-bluish">
+									  
+									  <div class="media-body">
+										<h5 class="media-heading yellow letter-spacing "><b>{{blogPost.blogTitle}}</b></h5>
+										<p class="mt-10"><span class="yellow">Posted By :</span>{{blogPost.postedBy.username}} &nbsp;<span class="yellow">On :</span>{{blogPost.postedOn | date:'medium'}}</p>
+										<p class="mt-10">{{blogPost.description}}</p>
+									<!--  	<a href=""  class="btn btn-success" ng-click="updateBlogPost(true)">Approve</a>&nbsp;&nbsp;
+										<a href="" class="btn btn-danger" ng-click="updateBlogPost(false)">Reject</a>-->
+										<div class="form-group">
+										<label class="radio-inline" style=color:lightGreen >
+												<input type="radio"  ng-model="blogPost.approved"  value="true" name="optradio">Approve
+										</label>
+										<label class="radio-inline" style=color:Red>
+												<input type="radio"  ng-model="blogPost.approved" value="false" name="optradio">Reject
+										</label>
+										<label class="radio-inline">
+										    <input type="submit" ng-click="updateBlogPost()"  id="register-submit" tabindex="4" class="form-control btn btn-success"  value="Submit">
+										</label>
+										</div>
+									  </div>
+									</div>
+							</div>
+							<div class="col-md-2 hidden-sm">
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			
+			</div>
+			
+			<!-- footer strats here-->
+			<div class="container-fluid bg-yellow mt-30">
+				<div class="container" style="padding:30px">
+						<div class="row">
+								 <div class="col-sm-4">
+								 <p><b>Contact Details</b></p>
+								  <p>NIIT BKC</p>
+								  <p><i class="fa fa-map-marker"></i> Maharashtra, India</p>
+								  <p><i class="fa fa-phone"></i> +00 1515151515</p>
+								  <p><i class="fa fa-envelope"></i> admin@studentforum.com</p>
+								</div>
+								<!--  <div class="col-sm-4">
+								  <div class="row">
+									<div class="col-sm-6 form-group">
+									  <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+									</div>
+									<div class="col-sm-6 form-group">
+									  <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+									</div>
+								  </div>
+								  <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="3"></textarea><br>
+								  <div class="row">
+									<div class="col-sm-12 form-group">
+									  <button class="btn btn-default pull-right" type="submit">Send</button>
+									</div>
+								  </div>
+								</div>-->
+								<div class="col-sm-4">
+									<p><b>About Student Forum</b></p>
+								  <p>Student Forum gives you the opportunity to create, manage your own blogs,forums. Also it helps you to manage the friend requests & users. You have various options to update profile for blogging. </p>
+								</div>
+						 </div>
+				</div>
+				
+				
+			
+			</div>
